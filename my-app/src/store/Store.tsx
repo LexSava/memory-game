@@ -1,4 +1,5 @@
 import { makeAutoObservable, autorun, set, toJS } from 'mobx';
+import _ from 'lodash';
 
 // eslint-disable-next-line
 export function autoSave(_this: any, name: string) {
@@ -11,9 +12,11 @@ export function autoSave(_this: any, name: string) {
     localStorage.setItem(name, JSON.stringify(value));
   });
 }
-
+// window.localStorage.clear();
 class Store {
   search: string = '';
+
+  pressedButtonId: Array<string> = [];
 
   public accessToken: string;
 
@@ -25,6 +28,15 @@ class Store {
 
   getSearchQuery(enteredSearch: string) {
     this.search = enteredSearch;
+  }
+
+  getPressedButtonId(enteredCard: string) {
+    this.pressedButtonId = this.pressedButtonId.concat(enteredCard);
+    // console.log(this.pressedButtonId);
+  }
+
+  renewPressedButtonId() {
+    this.pressedButtonId = [];
   }
 }
 

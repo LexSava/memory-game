@@ -1,6 +1,5 @@
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import {
-  COLOR_OATMEAL,
   COLOR_PAIN,
   COLOR_GOLD,
   COLOR_ASH,
@@ -8,22 +7,6 @@ import {
 
 export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
-      flexGrow: 1,
-    },
-    paper: {
-      height: 140,
-      width: 100,
-    },
-    control: {
-      padding: theme.spacing(2),
-    },
-    containerGrid: {
-      margin: 'auto',
-    },
-    mainBlock: {
-      backgroundColor: COLOR_OATMEAL,
-    },
     CardStyle: {
       border: `2px solid ${COLOR_ASH}`,
       borderRadius: '3px',
@@ -42,6 +25,10 @@ export const useStyles = makeStyles((theme: Theme) =>
     CardStyleImg: {
       width: '100%',
       height: '100%',
+    },
+    inactive: {
+      pointerEvents: 'none',
+      opacity: '0.5',
     },
   })
 );
