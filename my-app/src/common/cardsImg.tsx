@@ -13,19 +13,35 @@ const arrImages: Array<ICardBody> = [
     id: uuidv4(),
   },
   {
+    img: Fox,
+    id: uuidv4(),
+  },
+  {
     img: Mouse,
     id: uuidv4(),
   },
   {
-    img: Panda,
+    img: Mouse,
     id: uuidv4(),
   },
-  {
-    img: Penguin,
-    id: uuidv4(),
-  },
+  // {
+  //   img: Panda,
+  //   id: uuidv4(),
+  // },
+  // {
+  //   img: Panda,
+  //   id: uuidv4(),
+  // },
+  // {
+  //   img: Penguin,
+  //   id: uuidv4(),
+  // },
+  // {
+  //   img: Penguin,
+  //   id: uuidv4(),
+  // },
 ];
 
 const makeRandomArr = () => Math.random() - 0.5;
 
-export const ImageItems = [...arrImages, ...arrImages].sort(makeRandomArr);
+export const ImageItems = [...arrImages].sort(makeRandomArr);

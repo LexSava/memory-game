@@ -12,10 +12,8 @@ export function autoSave(_this: any, name: string) {
     localStorage.setItem(name, JSON.stringify(value));
   });
 }
-// window.localStorage.clear();
+window.localStorage.clear();
 class Store {
-  search: string = '';
-
   pressedButtonId: Array<string> = [];
 
   public accessToken: string;
@@ -24,10 +22,6 @@ class Store {
     makeAutoObservable(this, {}, { autoBind: true });
     this.accessToken = '';
     autoSave(this, 'authStore');
-  }
-
-  getSearchQuery(enteredSearch: string) {
-    this.search = enteredSearch;
   }
 
   getPressedButtonId(enteredCard: string) {
