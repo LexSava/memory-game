@@ -1,4 +1,5 @@
 import React from 'react';
+import { StylesProvider } from '@material-ui/core';
 import { HashRouter, Route } from 'react-router-dom';
 import Page from './components/Page/Page';
 import './App.scss';
@@ -16,8 +17,10 @@ document.addEventListener(
 );
 
 const App: React.FC<IApp> = () => (
-  <HashRouter>
-    <Route exact path="/" component={Page} />
-  </HashRouter>
+  <StylesProvider injectFirst>
+    <HashRouter>
+      <Route exact path="/" component={Page} />
+    </HashRouter>
+  </StylesProvider>
 );
 export default App;
