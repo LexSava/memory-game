@@ -1,5 +1,5 @@
 import { makeAutoObservable, autorun, set, toJS } from 'mobx';
-import _ from 'lodash';
+// import _ from 'lodash';
 
 // eslint-disable-next-line
 export function autoSave(_this: any, name: string) {
@@ -12,8 +12,10 @@ export function autoSave(_this: any, name: string) {
     localStorage.setItem(name, JSON.stringify(value));
   });
 }
-window.localStorage.clear();
+// window.localStorage.clear();
 class Store {
+  name: string = '';
+
   pressedButtonId: Array<string> = [];
 
   public accessToken: string;
@@ -22,6 +24,11 @@ class Store {
     makeAutoObservable(this, {}, { autoBind: true });
     this.accessToken = '';
     autoSave(this, 'authStore');
+  }
+
+  getName(text: string) {
+    this.name = text;
+    console.log(this.name);
   }
 
   getPressedButtonId(enteredCard: string) {
