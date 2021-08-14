@@ -5,6 +5,16 @@ import './App.scss';
 
 interface IApp {}
 
+document.addEventListener(
+  'dblclick',
+  (event: MouseEvent) => {
+    // alert('Double-click disabled!');
+    event.preventDefault();
+    event.stopPropagation();
+  },
+  true
+);
+
 const App: React.FC<IApp> = () => (
   <HashRouter>
     <Route exact path="/" component={Page} />

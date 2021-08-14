@@ -7,31 +7,37 @@ import Panda from '../assets/img/panda.svg';
 import Penguin from '../assets/img/penguin.svg';
 
 // eslint-disable-next-line
-const arrImages: Array<ICardBody> = [
+export const arrImages: Array<ICardBody> = [
   {
+    label: 'Fox',
     img: Fox,
     id: uuidv4(),
   },
   {
+    label: 'Fox',
     img: Fox,
     id: uuidv4(),
   },
   {
+    label: 'Mouse',
     img: Mouse,
     id: uuidv4(),
   },
   {
+    label: 'Mouse',
     img: Mouse,
     id: uuidv4(),
   },
-  // {
-  //   img: Panda,
-  //   id: uuidv4(),
-  // },
-  // {
-  //   img: Panda,
-  //   id: uuidv4(),
-  // },
+  {
+    label: 'Panda',
+    img: Panda,
+    id: uuidv4(),
+  },
+  {
+    label: 'Panda',
+    img: Panda,
+    id: uuidv4(),
+  },
   // {
   //   img: Penguin,
   //   id: uuidv4(),
