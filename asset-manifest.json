@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "./static/css/main.51ddb7b5.chunk.css",
+    "main.js": "./static/js/main.fc3f1c30.chunk.js",
+    "main.js.map": "./static/js/main.fc3f1c30.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.b1867971.js",
+    "runtime-main.js.map": "./static/js/runtime-main.b1867971.js.map",
+    "static/js/2.7e927771.chunk.js": "./static/js/2.7e927771.chunk.js",
+    "static/js/2.7e927771.chunk.js.map": "./static/js/2.7e927771.chunk.js.map",
+    "static/js/3.9222fa6e.chunk.js": "./static/js/3.9222fa6e.chunk.js",
+    "static/js/3.9222fa6e.chunk.js.map": "./static/js/3.9222fa6e.chunk.js.map",
+    "index.html": "./index.html",
+    "static/css/main.51ddb7b5.chunk.css.map": "./static/css/main.51ddb7b5.chunk.css.map",
+    "static/js/2.7e927771.chunk.js.LICENSE.txt": "./static/js/2.7e927771.chunk.js.LICENSE.txt",
+    "static/media/battleship.d7f07a99.svg": "./static/media/battleship.d7f07a99.svg",
+    "static/media/bear.2a1821b9.svg": "./static/media/bear.2a1821b9.svg",
+    "static/media/camel.f628f5f2.svg": "./static/media/camel.f628f5f2.svg",
+    "static/media/cat.43ecf4be.svg": "./static/media/cat.43ecf4be.svg",
+    "static/media/crab.080f60ad.svg": "./static/media/crab.080f60ad.svg",
+    "static/media/dog.cb011b99.svg": "./static/media/dog.cb011b99.svg",
+    "static/media/elephant.b30b177a.svg": "./static/media/elephant.b30b177a.svg",
+    "static/media/fox.4c13be4a.svg": "./static/media/fox.4c13be4a.svg",
+    "static/media/giraffe.5b06f41a.svg": "./static/media/giraffe.5b06f41a.svg",
+    "static/media/hare.31cbdde7.svg": "./static/media/hare.31cbdde7.svg",
+    "static/media/mouse.f3239556.svg": "./static/media/mouse.f3239556.svg",
+    "static/media/panda.bf1e07ce.svg": "./static/media/panda.bf1e07ce.svg",
+    "static/media/penguin.28a6c7fe.svg": "./static/media/penguin.28a6c7fe.svg",
+    "static/media/pig.a089e089.svg": "./static/media/pig.a089e089.svg",
+    "static/media/raccoon.c3bdf204.svg": "./static/media/raccoon.c3bdf204.svg",
+    "static/media/sloth.e28b4a64.svg": "./static/media/sloth.e28b4a64.svg",
+    "static/media/tiger.ec08f237.svg": "./static/media/tiger.ec08f237.svg",
+    "static/media/turtle.0710488d.svg": "./static/media/turtle.0710488d.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b1867971.js",
+    "static/js/2.7e927771.chunk.js",
+    "static/css/main.51ddb7b5.chunk.css",
+    "static/js/main.fc3f1c30.chunk.js"
+  ]
+}
