@@ -28,7 +28,8 @@ html,
 body {
   font-family: 'Hahmlet', serif;
   height: 100%;
-  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
   font-size: 100%;
   line-height: 1;
   font-size: 14px;

@@ -51,11 +51,11 @@ const History: React.FC<IHistory> = (props) => {
   return (
     <Box>
       <Button variant="contained" color="secondary" onClick={handleClickOpen}>
-        Open full-screen dialog
+        Open game result
       </Button>
       <Dialog fullScreen open={open} onClose={handleClose}>
-        <AppBar className="app-bar ">
-          <Toolbar className="header-block">
+        <AppBar className="app-bar header-block">
+          <Toolbar>
             <IconButton
               edge="start"
               color="inherit"
