@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Typography, Button } from '@material-ui/core/';
 import { useStopwatch } from 'react-timer-hook';
+import Store from '../../store/Store';
 
 import './Header.scss';
 
@@ -16,7 +17,10 @@ const Header: React.FC<IHeader> = (props) => {
 
   useEffect(() => {
     if (props.getTimer === 'start') start();
-    if (props.getTimer === 'stop') pause();
+    if (props.getTimer === 'stop') {
+      Store.getHistoty(minutes * 60 + seconds);
+      pause();
+    }
     if (props.getTimer === 'reset') reset();
   }, [props.getTimer]);
 

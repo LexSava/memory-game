@@ -10,6 +10,7 @@ interface IMain {
   onStopTimer(text: string): void;
   restertGame: boolean;
   onRunRestertGame(value: boolean): void;
+  onCheckHistoryGame(value: boolean): void;
 }
 
 const Main: React.FC<IMain> = (props) => {
@@ -19,16 +20,13 @@ const Main: React.FC<IMain> = (props) => {
   const [lastChoice, setLastChoice] = useState<ICardBody | null>(null);
   const [currentChoice, setCurrentChoice] = useState<ICardBody | null>(null);
   const [currentlyFlipped, setCurrentlyFlipped] = useState<number>(0);
-  const [restartGame, setRestartGame] = useState<string>('');
   const makeRandomArr = () => Math.random() - 0.5;
+
   useEffect(() => {
     setValues([...arrImages].sort(makeRandomArr));
-    console.log(props.restertGame);
   }, []);
 
   useEffect(() => {
-    // console.log(props.restertGame);
-
     let timer: NodeJS.Timeout;
     if (props.restertGame) {
       timer = setTimeout(() => {
@@ -58,6 +56,7 @@ const Main: React.FC<IMain> = (props) => {
         if (lastChoice.label === currentChoice?.label) {
           if (flipped.length === arrImages.length) {
             props.onStopTimer('stop');
+            props.onCheckHistoryGame(true);
             timer = setTimeout(() => {
               setFlipped([]);
               setLastChoice(null);
@@ -65,8 +64,8 @@ const Main: React.FC<IMain> = (props) => {
               setCurrentlyFlipped(0);
               setValues([...arrImages].sort(makeRandomArr));
               props.onRunRestertGame(false);
-              props.onStopTimer('reset');
-            }, 3000);
+              props.onCheckHistoryGame(false);
+            }, 500);
 
             console.log('History');
           }

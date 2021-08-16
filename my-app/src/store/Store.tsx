@@ -16,7 +16,7 @@ export function autoSave(_this: any, name: string) {
 class Store {
   name: string = '';
 
-  pressedButtonId: Array<string> = [];
+  histoty: Array<number> = [];
 
   public accessToken: string;
 
@@ -31,13 +31,9 @@ class Store {
     console.log(this.name);
   }
 
-  getPressedButtonId(enteredCard: string) {
-    this.pressedButtonId = this.pressedButtonId.concat(enteredCard);
-    // console.log(this.pressedButtonId);
-  }
-
-  renewPressedButtonId() {
-    this.pressedButtonId = [];
+  getHistoty(result: number) {
+    this.histoty = this.histoty.concat(result);
+    console.log(this.histoty);
   }
 }
 

@@ -12,20 +12,16 @@ interface IPage {}
 const Page: React.FC<IPage> = (props) => {
   // eslint-disable-next-line
   const [modalWindow, setModalWindow] = useState<any>([]);
+  // eslint-disable-next-line
+  const [historyGame, setHistoryGame] = useState<any>([]);
   const [switchModalWindow, getSwitchModalWindow] = useState<string>('');
   const [timer, seTimer] = useState<string>('pause');
   const [restertGame, setRestertGame] = useState<boolean>(false);
+  const [openHistoryGame, setOpenHistoryGame] = useState<boolean>(false);
 
-  const checkSwitchModalWindow = (text: string) => {
-    getSwitchModalWindow(text);
-  };
-
-  const runTimer = (text: string) => {
-    seTimer(text);
-  };
-  const runRestertGame = (value: boolean) => {
-    setRestertGame(value);
-  };
+  useEffect(() => {
+    console.log(openHistoryGame);
+  }, [openHistoryGame]);
 
   useEffect(() => {
     if (Store.name.length !== 0) {
@@ -37,6 +33,31 @@ const Page: React.FC<IPage> = (props) => {
     }
   }, [switchModalWindow]);
 
+  useEffect(() => {
+    setHistoryGame(
+      <History
+        onRunTimer={runTimer}
+        onCheckHistoryGame={checkHistoryGame}
+        openHistoryGame={openHistoryGame}
+      />
+    );
+  }, [openHistoryGame]);
+
+  const checkSwitchModalWindow = (text: string) => {
+    getSwitchModalWindow(text);
+  };
+
+  const checkHistoryGame = (value: boolean) => {
+    setOpenHistoryGame(value);
+  };
+
+  const runTimer = (text: string) => {
+    seTimer(text);
+  };
+  const runRestertGame = (value: boolean) => {
+    setRestertGame(value);
+  };
+
   return (
     <Box maxWidth="1920px" mx="auto">
       <Header getTimer={timer} onRunRestertGame={runRestertGame} />
@@ -44,9 +65,10 @@ const Page: React.FC<IPage> = (props) => {
         onStopTimer={runTimer}
         restertGame={restertGame}
         onRunRestertGame={runRestertGame}
+        onCheckHistoryGame={checkHistoryGame}
       />
       {modalWindow}
-      <History />
+      {historyGame}
     </Box>
   );
 };
