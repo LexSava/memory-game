@@ -12,9 +12,11 @@ import {
 import './Registration.scss';
 import Store from '../../store/Store';
 
-interface IRegistration {}
+interface IRegistration {
+  onCheckSwitchModalWindow(text: string): void;
+}
 
-export default function Registration() {
+const Registration: React.FC<IRegistration> = (props) => {
   const [open, setOpen] = useState<boolean>(false);
   const [inputText, setInputText] = useState<string>(Store.name);
 
@@ -36,6 +38,7 @@ export default function Registration() {
 
   const createUser = () => {
     Store.getName(inputText);
+    props.onCheckSwitchModalWindow(inputText);
     setOpen(false);
   };
 
@@ -49,7 +52,7 @@ export default function Registration() {
   return (
     <Box>
       <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Open form dialog
+        Open Registration dialog
       </Button>
       <Dialog
         open={open}
@@ -82,4 +85,6 @@ export default function Registration() {
       </Dialog>
     </Box>
   );
-}
+};
+
+export default Registration;
