@@ -48,6 +48,6 @@ export const arrImages: Array<ICardBody> = [
   // },
 ];
 
-const makeRandomArr = () => Math.random() - 0.5;
+// export const makeRandomArr = () => Math.random() - 0.5;
 
-export const ImageItems = [...arrImages].sort(makeRandomArr);
+// export const ImageItems = [...arrImages].sort(makeRandomArr);

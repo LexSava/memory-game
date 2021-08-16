@@ -4,12 +4,26 @@ import { useStopwatch } from 'react-timer-hook';
 
 import './Header.scss';
 
-interface IHeader {}
+interface IHeader {
+  getTimer: string;
+  onRunRestertGame(value: boolean): void;
+}
 
-const Header: React.FC<IHeader> = () => {
+const Header: React.FC<IHeader> = (props) => {
   const { seconds, minutes, start, pause, reset } = useStopwatch({
     autoStart: false,
   });
+
+  useEffect(() => {
+    if (props.getTimer === 'start') start();
+    if (props.getTimer === 'stop') pause();
+    if (props.getTimer === 'reset') reset();
+  }, [props.getTimer]);
+
+  const restertGame = () => {
+    props.onRunRestertGame(true);
+    reset();
+  };
 
   return (
     <Box
@@ -30,10 +44,10 @@ const Header: React.FC<IHeader> = () => {
         variant="contained"
         color="secondary"
         onClick={() => {
-          start();
+          restertGame();
         }}
       >
-        Start
+        Restart
       </Button>
     </Box>
   );

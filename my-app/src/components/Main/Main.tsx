@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Box } from '@material-ui/core/';
-import { ImageItems, arrImages } from '../../common/cardsImg';
+import { arrImages } from '../../common/cardsImg';
 import { ICardBody } from '../../common/interfaces';
 import Card from '../Card/Card';
 
 import './Main.scss';
 
-interface IMain {}
+interface IMain {
+  onStopTimer(text: string): void;
+  restertGame: boolean;
+  onRunRestertGame(value: boolean): void;
+}
 
 const Main: React.FC<IMain> = (props) => {
   const [flipped, setFlipped] = useState<string[]>([]);
@@ -14,11 +18,30 @@ const Main: React.FC<IMain> = (props) => {
   const [counter, setCounter] = useState(0);
   const [lastChoice, setLastChoice] = useState<ICardBody | null>(null);
   const [currentChoice, setCurrentChoice] = useState<ICardBody | null>(null);
-  const [currentlyFlipped, setCurrentlyFlipped] = useState(0);
+  const [currentlyFlipped, setCurrentlyFlipped] = useState<number>(0);
+  const [restartGame, setRestartGame] = useState<string>('');
+  const makeRandomArr = () => Math.random() - 0.5;
+  useEffect(() => {
+    setValues([...arrImages].sort(makeRandomArr));
+    console.log(props.restertGame);
+  }, []);
 
   useEffect(() => {
-    setValues(ImageItems);
-  }, []);
+    // console.log(props.restertGame);
+
+    let timer: NodeJS.Timeout;
+    if (props.restertGame) {
+      timer = setTimeout(() => {
+        setFlipped([]);
+        setLastChoice(null);
+        setCurrentChoice(null);
+        setCurrentlyFlipped(0);
+        props.onRunRestertGame(false);
+        setValues([...arrImages].sort(makeRandomArr));
+      }, 500);
+    }
+    return () => clearTimeout(timer);
+  }, [props.restertGame]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -34,6 +57,17 @@ const Main: React.FC<IMain> = (props) => {
         setCurrentlyFlipped((flip) => flip + 1);
         if (lastChoice.label === currentChoice?.label) {
           if (flipped.length === arrImages.length) {
+            props.onStopTimer('stop');
+            timer = setTimeout(() => {
+              setFlipped([]);
+              setLastChoice(null);
+              setCurrentChoice(null);
+              setCurrentlyFlipped(0);
+              setValues([...arrImages].sort(makeRandomArr));
+              props.onRunRestertGame(false);
+              props.onStopTimer('reset');
+            }, 3000);
+
             console.log('History');
           }
           setLastChoice(null);

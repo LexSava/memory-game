@@ -11,9 +11,11 @@ import {
 import './Welcome.scss';
 import Store from '../../store/Store';
 
-interface IWelcome {}
+interface IWelcome {
+  onRunTimer(text: string): void;
+}
 
-const Welcome = () => {
+const Welcome: React.FC<IWelcome> = (props) => {
   const [open, setOpen] = React.useState(false);
   const [name, setName] = useState<string>(Store.name);
 
@@ -25,19 +27,13 @@ const Welcome = () => {
     if (Store.name.length != 0) setOpen(true);
   }, []);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
   const handleClose = () => {
+    props.onRunTimer('start');
     setOpen(false);
   };
 
   return (
     <Box>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Open Welcome dialog
-      </Button>
       <Dialog
         open={open}
         onClose={handleClose}

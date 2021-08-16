@@ -51,9 +51,6 @@ const Registration: React.FC<IRegistration> = (props) => {
 
   return (
     <Box>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Open Registration dialog
-      </Button>
       <Dialog
         open={open}
         onClose={handleClose}
