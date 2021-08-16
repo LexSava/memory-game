@@ -21,7 +21,7 @@ const Registration: React.FC<IRegistration> = (props) => {
   const [inputText, setInputText] = useState<string>(Store.name);
 
   useEffect(() => {
-    if (Store.name.length === 0) setOpen(true);
+    if (Store.name.length === 0) handleClickOpen();
   }, []);
 
   const handleClickOpen = () => {
@@ -72,9 +72,6 @@ const Registration: React.FC<IRegistration> = (props) => {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Cancel
-          </Button>
           <Button onClick={createUser} color="primary">
             Register
           </Button>

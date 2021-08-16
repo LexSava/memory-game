@@ -1,5 +1,4 @@
 import { makeAutoObservable, autorun, set, toJS } from 'mobx';
-// import _ from 'lodash';
 
 // eslint-disable-next-line
 export function autoSave(_this: any, name: string) {
@@ -28,12 +27,10 @@ class Store {
 
   getName(text: string) {
     this.name = text;
-    console.log(this.name);
   }
 
   getHistoty(result: number) {
     this.histoty = this.histoty.concat(result);
-    console.log(this.histoty);
   }
 }
 

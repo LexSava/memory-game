@@ -50,7 +50,7 @@ const History: React.FC<IHistory> = (props) => {
 
   return (
     <Box>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+      <Button variant="contained" color="secondary" onClick={handleClickOpen}>
         Open full-screen dialog
       </Button>
       <Dialog fullScreen open={open} onClose={handleClose}>

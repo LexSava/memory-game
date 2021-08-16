@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Box, Typography, Button } from '@material-ui/core/';
 import { useStopwatch } from 'react-timer-hook';
 import Store from '../../store/Store';

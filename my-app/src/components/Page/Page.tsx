@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Box } from '@material-ui/core';
+import { Box, Link } from '@material-ui/core';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
 import Registration from '../Registration/Registration';
 import Welcome from '../Welcome/Welcome';
 import History from '../History/History';
 import Store from '../../store/Store';
+import './Page.scss';
 
 interface IPage {}
 
@@ -18,10 +19,6 @@ const Page: React.FC<IPage> = (props) => {
   const [timer, seTimer] = useState<string>('pause');
   const [restertGame, setRestertGame] = useState<boolean>(false);
   const [openHistoryGame, setOpenHistoryGame] = useState<boolean>(false);
-
-  useEffect(() => {
-    console.log(openHistoryGame);
-  }, [openHistoryGame]);
 
   useEffect(() => {
     if (Store.name.length !== 0) {
@@ -68,7 +65,25 @@ const Page: React.FC<IPage> = (props) => {
         onCheckHistoryGame={checkHistoryGame}
       />
       {modalWindow}
-      {historyGame}
+      <Box
+        className="header-block "
+        pl={4}
+        pr={4}
+        pt={2}
+        pb={2}
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+      >
+        <Link
+          href="https://github.com/LexSava/memory-game"
+          color="inherit"
+          target="_blank"
+        >
+          App GitHub
+        </Link>
+        {historyGame}
+      </Box>
     </Box>
   );
 };

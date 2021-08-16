@@ -66,8 +66,6 @@ const Main: React.FC<IMain> = (props) => {
               props.onRunRestertGame(false);
               props.onCheckHistoryGame(false);
             }, 500);
-
-            console.log('History');
           }
           setLastChoice(null);
           setCurrentChoice(null);

@@ -28,21 +28,23 @@ export const arrImages: Array<ICardBody> = [
     img: Mouse,
     id: uuidv4(),
   },
-  {
-    label: 'Panda',
-    img: Panda,
-    id: uuidv4(),
-  },
-  {
-    label: 'Panda',
-    img: Panda,
-    id: uuidv4(),
-  },
   // {
+  //   label: 'Panda',
+  //   img: Panda,
+  //   id: uuidv4(),
+  // },
+  // {
+  //   label: 'Panda',
+  //   img: Panda,
+  //   id: uuidv4(),
+  // },
+  // {
+  //   label: 'Penguin',
   //   img: Penguin,
   //   id: uuidv4(),
   // },
   // {
+  //   label: 'Penguin',
   //   img: Penguin,
   //   id: uuidv4(),
   // },

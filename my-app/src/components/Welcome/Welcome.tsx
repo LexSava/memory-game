@@ -24,7 +24,7 @@ const Welcome: React.FC<IWelcome> = (props) => {
   }, []);
 
   useEffect(() => {
-    if (Store.name.length != 0) setOpen(true);
+    if (Store.name.length !== 0) setOpen(true);
   }, []);
 
   const handleClose = () => {
