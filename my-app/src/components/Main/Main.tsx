@@ -22,6 +22,20 @@ const Main: React.FC<IMain> = (props) => {
   const [currentlyFlipped, setCurrentlyFlipped] = useState<number>(0);
   const makeRandomArr = () => Math.random() - 0.5;
 
+  const handleOnCardClick = (value: ICardBody) => {
+    if (currentlyFlipped >= 2 || flipped.includes(value.id)) {
+      return null;
+    }
+    setCurrentChoice(value);
+    return setFlipped(() => [...flipped, value.id]);
+  };
+
+  const closeCards = () => {
+    setLastChoice(null);
+    setCurrentChoice(null);
+    setCurrentlyFlipped(0);
+  };
+
   useEffect(() => {
     setValues([...arrImages].sort(makeRandomArr));
   }, []);
@@ -31,9 +45,7 @@ const Main: React.FC<IMain> = (props) => {
     if (props.restertGame) {
       timer = setTimeout(() => {
         setFlipped([]);
-        setLastChoice(null);
-        setCurrentChoice(null);
-        setCurrentlyFlipped(0);
+        closeCards();
         props.onRunRestertGame(false);
         setValues([...arrImages].sort(makeRandomArr));
       }, 500);
@@ -59,17 +71,13 @@ const Main: React.FC<IMain> = (props) => {
             props.onCheckHistoryGame(true);
             timer = setTimeout(() => {
               setFlipped([]);
-              setLastChoice(null);
-              setCurrentChoice(null);
-              setCurrentlyFlipped(0);
+              closeCards();
               setValues([...arrImages].sort(makeRandomArr));
               props.onRunRestertGame(false);
               props.onCheckHistoryGame(false);
             }, 500);
           }
-          setLastChoice(null);
-          setCurrentChoice(null);
-          setCurrentlyFlipped(0);
+          closeCards();
         } else {
           timer = setTimeout(() => {
             setFlipped(
@@ -77,9 +85,7 @@ const Main: React.FC<IMain> = (props) => {
                 (f) => f !== currentChoice?.id && f !== lastChoice?.id
               )
             );
-            setLastChoice(null);
-            setCurrentChoice(null);
-            setCurrentlyFlipped(0);
+            closeCards();
           }, 1000);
         }
       } else {
@@ -89,14 +95,6 @@ const Main: React.FC<IMain> = (props) => {
     }
     return () => clearTimeout(timer);
   }, [flipped]);
-
-  const handleOnCardClick = (value: ICardBody) => {
-    if (currentlyFlipped >= 2 || flipped.includes(value.id)) {
-      return null;
-    }
-    setCurrentChoice(value);
-    return setFlipped(() => [...flipped, value.id]);
-  };
 
   return (
     <Box
